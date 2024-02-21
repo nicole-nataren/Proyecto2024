@@ -11,6 +11,7 @@ private:
 public:
     int key;
     Nodo *next;
+    Nodo *prev;
     Nodo();
     Nodo(int );
 };

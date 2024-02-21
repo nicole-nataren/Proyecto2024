@@ -1,4 +1,4 @@
-#include"Lista.hpp"
+#include"Lista.h"
 #include "Nodo.h"
 
 Lista::Lista(){
