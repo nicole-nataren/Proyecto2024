@@ -1,5 +1,4 @@
 #include"Lista.h"
-#include "Nodo.h"
 
 Lista::Lista(){
     this->head=0;   
@@ -8,12 +7,19 @@ Lista::Lista(){
 Lista::Lista(int key){
     Nodo *nuevoNodo= new Nodo(key);
     this->head=nuevoNodo;
+    this->tail=nuevoNodo;
 }
 
 void Lista::pushFront(int key){
     Nodo *nuevoNodo= new Nodo(key);
-    nuevoNodo->next=head;
-    head=nuevoNodo;
+     if(head!=NULL){
+        nuevoNodo->next=head;
+         head=nuevoNodo;
+     }
+    else{
+        this->tail=nuevoNodo;
+        this->head=nuevoNodo;
+    }
 }
 
 int Lista::popFront(){
@@ -22,7 +28,7 @@ int Lista::popFront(){
    {
         Nodo *aux=head;
         elem=this->head->key;
-        head=head->next;
+        this->head=head->next;
         delete aux;
         return elem;
    }
@@ -42,9 +48,11 @@ void Lista::pushBack(int key){
             iterador =iterador->next;
         }
         iterador->next=nuevoNodo;
+        tail=nuevoNodo;
     }
     else{
-        head=nuevoNodo;
+        this->tail=nuevoNodo;
+        this->head=nuevoNodo;
     }
 }
 
@@ -52,13 +60,15 @@ int Lista::popBack(){
     int elem=0;
     if (head!=NULL)
     {
+        Nodo *aux;
         Nodo *iterador;
-        iterador=head;
         while(iterador->next->next !=NULL){
             iterador= iterador->next;
         }
-    Nodo *aux=iterador->next;
+        aux=iterador->next;
+        elem=iterador->next->key;
         iterador->next=NULL;
+        tail=iterador;
         delete aux;
         return elem;
     }
@@ -68,7 +78,6 @@ int Lista::popBack(){
     }
     
 }
-
 
 void Lista::print(){
     Nodo *iterador;
