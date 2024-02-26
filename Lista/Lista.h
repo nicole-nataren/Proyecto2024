@@ -6,10 +6,11 @@
 class Lista{
 public:
 	Lista();
-    void pushFront(int );
-    void pushBack(int );
-    int popFront();
-    int popBack();
+	Lista(int );
+    	void pushFront(int );
+  	void pushBack(int );
+	int popFront();
+    	int popBack();
 	void top();
 	void print();
    
