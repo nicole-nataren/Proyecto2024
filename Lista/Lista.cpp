@@ -51,7 +51,8 @@ int Lista::popBack(){
     return dato;
 }
 
-void Lista::top(){
+
+void Lista::print(){
     Nodo *iterador;
     iterador=head;
     while (iterador !=NULL)
