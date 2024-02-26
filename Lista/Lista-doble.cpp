@@ -1,57 +1,74 @@
 #include"Lista-doble.h"
-#include "Nodo.h"
 
 ListaDoble::ListaDoble(){
-    head=0;   
+    this->head=0;
+    this->tail=0;
+}
+
+ListaDoble::ListaDoble(int key){
+    Nodo *nuevoNodo=new Nodo(Key);
+    this->head=nuevoNodo;
+    this->tail=nuevoNodo;
 }
 
 void ListaDoble::pushFront(int key){
     Nodo *nuevoNodo= new Nodo(key);
-    nuevoNodo->next=head;
-    head=nuevoNodo;
+    if(this->head==NULL){
+    this->head=nuevoNodo;
+    this->tail=nuevoNodo;
+    }
+    else{
+    this->head->prev=nuevoNodo;
+        nuevoNodo->next=head;
+        head=nuevoNodo;
+    }
 }
 
 int ListaDoble::popFront(){
-   if (head==NULL)
+    int elem=0;
+   if (head!=NULL)
    {
-    cout<<"la lista esta vacia"<<endl;
+       elem=head->next;
+       Nodo *aux=head;
+       head->next->prev=NULL;
+       head=head->next;
+       delete aux;
+       return elem;
    }
-   int dato=head->key;
-   head=head->next;
-   return dato;
+   else{
+       cout<<"La lista esta vacia"<<endl;
+       return elem;
+   }
 }
 
 void ListaDoble::pushBack(int key){
     Nodo *nuevoNodo=new Nodo(key);
-    Nodo *iterador=head;
-
-    if(head != NULL){
-        while (iterador->next != NULL)
-        {
-            iterador =iterador->next;
-        }
-        iterador->next=nuevoNodo;
+    
+    if(this->head == NULL){
+       this->head=nuevoNodo;
+        this->tail=nuevoNodo;
+    }
+    else{
+        this->tail->next=nuevoNodo;
+        nuevoNodo->prev=this->tail;
+        this->tail=nuevoNodo;
     }
 }
 
 int ListaDoble::popBack(){
-    Nodo *iterador=head;
-    Nodo *aux;
-    int dato;
-    if (head==NULL)
+    int elem=0;
+    if (head!=NULL)
     {
-        cout<<"la lista esta vacia"<<endl;
+       elem=tail->key;
+        Nodo *aux=tail;
+        tail->prev->next=NULL;
+        tail=tail->prev;
+        delete aux;
+        return elem;
     }
-    while(iterador->next!=NULL){
-        aux=iterador;
-        iterador= iterador->next;
-        dato=iterador->key;
-    }
-    aux->next=NULL;
-    return dato;
 }
 
-void ListaDoble::top(){
+void ListaDoble::print(){
     Nodo *iterador;
     iterador=head;
     while (iterador !=NULL)
