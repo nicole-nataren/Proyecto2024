@@ -11,7 +11,6 @@ public:
   	void pushBack(int );
 	int popFront();
     	int popBack();
-	void top();
 	void print();
    
 private:
