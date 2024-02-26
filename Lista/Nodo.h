@@ -6,12 +6,10 @@ using std::cout;
 using std::endl;
 
 class Nodo{
-private:
-    
 public:
-    int key;
-    Nodo *next;
     Nodo();
     Nodo(int );
+    int key;
+    Nodo *next;
 };
 #endif
