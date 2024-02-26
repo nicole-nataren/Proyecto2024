@@ -1,6 +1,7 @@
 #ifndef LISTA
 #define LISTA
-#include"Nodo.hpp"
+#include"Nodo.h"
+
 
 class Lista{
 public:
