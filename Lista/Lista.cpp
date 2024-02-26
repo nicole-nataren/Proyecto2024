@@ -2,7 +2,12 @@
 #include "Nodo.h"
 
 Lista::Lista(){
-    head=0;   
+    this->head=0;   
+}
+
+Lista::Lista(int key){
+    Nodo *nuevoNodo= new Nodo(key);
+    this->head=nuevoNodo;
 }
 
 void Lista::pushFront(int key){
@@ -12,13 +17,19 @@ void Lista::pushFront(int key){
 }
 
 int Lista::popFront(){
-   if (head==NULL)
+    int elem=0;
+   if (head!=NULL)
    {
-    cout<<"la lista esta vacia"<<endl;
+        Nodo *aux=head;
+        elem=this->head->key;
+        head=head->next;
+        delete aux;
+        return elem;
    }
-   int dato=head->key;
-   head=head->next;
-   return dato;
+    else{
+       cout<<"La lista esta vacia"<<endl;
+       return dato;
+    }
 }
 
 void Lista::pushBack(int key){
@@ -32,23 +43,30 @@ void Lista::pushBack(int key){
         }
         iterador->next=nuevoNodo;
     }
+    else{
+        head=nuevoNodo;
+    }
 }
 
 int Lista::popBack(){
-    Nodo *iterador=head;
-    Nodo *aux;
-    int dato;
-    if (head==NULL)
+    int elem=0;
+    if (head!=NULL)
     {
-        cout<<"la lista esta vacia"<<endl;
+        Nodo *iterador;
+        iterador=head;
+        while(iterador->next->next !=NULL){
+            iterador= iterador->next;
+        }
+    Nodo *aux=iterador->next;
+        iterador->next=NULL;
+        delete aux;
+        return elem;
     }
-    while(iterador->next!=NULL){
-        aux=iterador;
-        iterador= iterador->next;
-        dato=iterador->key;
+    else{
+    cout<<"La lista esta vacia"<<endl;
+        return elem;
     }
-    aux->next=NULL;
-    return dato;
+    
 }
 
 
