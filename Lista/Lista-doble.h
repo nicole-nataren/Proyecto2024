@@ -1,12 +1,12 @@
-#ifndef LISTADOBLE
-#define LISTADOBLE
+#ifndef LISTA
+#define LISTA
 #include "Funciones.h"
 #include"Nodo.h"
 
-class ListaDoble{
+class Lista{
 public:
-	ListaDoble();
-	ListaDoble(int );
+	Lista();
+	Lista(int );
     	void pushFront(int );
     	void pushBack(int );
     	int popFront();
