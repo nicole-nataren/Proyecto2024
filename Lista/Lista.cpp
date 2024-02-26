@@ -1,17 +1,17 @@
-#include"Lista-doble.h"
+#include"Lista.h"
 
-ListaDoble::ListaDoble(){
+Lista::Lista(){
     this->head=0;
     this->tail=0;
 }
 
-ListaDoble::ListaDoble(int key){
+Lista::Lista(int key){
     Nodo *nuevoNodo=new Nodo(Key);
     this->head=nuevoNodo;
     this->tail=nuevoNodo;
 }
 
-void ListaDoble::pushFront(int key){
+void Lista::pushFront(int key){
     Nodo *nuevoNodo= new Nodo(key);
     if(this->head==NULL){
     this->head=nuevoNodo;
@@ -24,7 +24,7 @@ void ListaDoble::pushFront(int key){
     }
 }
 
-int ListaDoble::popFront(){
+int Lista::popFront(){
     int elem=0;
    if (head!=NULL)
    {
@@ -41,7 +41,7 @@ int ListaDoble::popFront(){
    }
 }
 
-void ListaDoble::pushBack(int key){
+void Lista::pushBack(int key){
     Nodo *nuevoNodo=new Nodo(key);
     
     if(this->head == NULL){
@@ -55,7 +55,7 @@ void ListaDoble::pushBack(int key){
     }
 }
 
-int ListaDoble::popBack(){
+int Lista::popBack(){
     int elem=0;
     if (head!=NULL)
     {
@@ -72,7 +72,7 @@ int ListaDoble::popBack(){
     }
 }
 
-void ListaDoble::print(){
+void Lista::print(){
     Nodo *iterador;
     iterador=head;
     while (iterador !=NULL)
