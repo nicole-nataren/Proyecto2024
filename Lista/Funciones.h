@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 
 
-class funciones{
+class Funciones{
    public:
     virtual void pushFront(int )=0;
     virtual void pushBack(int )=0;
