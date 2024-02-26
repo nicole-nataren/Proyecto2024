@@ -1,7 +1,7 @@
 #ifndef LISTA
 #define LISTA
 #include"Nodo.h"
-
+#include "Funciones.h"
 
 class Lista{
 public:
@@ -11,6 +11,7 @@ public:
     int popFront();
     int popBack();
 	void top();
+	void print();
    
 private:
    Nodo *head;
