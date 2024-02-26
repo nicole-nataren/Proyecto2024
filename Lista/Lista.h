@@ -15,6 +15,6 @@ public:
    
 private:
    Nodo *head;
-   
+   Nodo *tail
 };
 #endif
