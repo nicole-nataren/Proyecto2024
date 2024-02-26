@@ -66,6 +66,10 @@ int ListaDoble::popBack(){
         delete aux;
         return elem;
     }
+    else{
+        cout<<"La lista esta vacia"<<endl;
+        return elem;
+    }
 }
 
 void ListaDoble::print(){
